@@ -6,7 +6,7 @@ require_relative "credentials"
 
 username = $username
 password = $password
-users = ["josephineskriver", "theweeknd", "kendalljenner", "karliekloss"]
+users = ["josephineskriver", "theweeknd", "kendalljenner", "karliekloss", "phambeee"]
 
 browser = Watir::Browser.new :chrome, switches: ["--incognito"]
 browser.goto "https://www.instagram.com/accounts/login/"

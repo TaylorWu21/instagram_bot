@@ -26,14 +26,15 @@ while true
     sleep(1)
   end
 
-  if browser.span(class: "coreSpriteLikeHeartOpen").exists?
-    browser.spans(class: "coreSpriteLikeHeartOpen").each { |val| 
+  if browser.span(class: "coreSpriteHeartOpen").exists?
+    browser.spans(class: "coreSpriteHeartOpen").each { |val| 
       val.click
       like_counter += 1
     }
     ap "Photos Liked: #{like_counter}"
   else
     ap "No media to like yo, sorry homie"
+    exit
   end
   num_of_rounds += 1
   puts "=======#{like_counter / num_of_rounds} likes per round (on average) =========="
