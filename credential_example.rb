@@ -1,2 +1,0 @@
-$username = "YOUR INSTAGRAM USERNAME"
-$password = "YOUR INSTAGRAM PASSWORD"

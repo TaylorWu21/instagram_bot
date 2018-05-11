@@ -9,7 +9,7 @@ puts "🔥🔥🔥🔥🔥 \s TAYLOR'S DOPE ASS INSTAGRAM AUTO LIKER \s 🔥🔥
 
 username = ask("Enter your Username?  ")
 password = ask("Enter your password:  ") { |q| q.echo = "*" }
-like_counter = 0
+@like_counter = 0
 num_of_rounds = 0
 
 browser = Watir::Browser.new :chrome, switches: ["--incognito"]
@@ -20,8 +20,17 @@ ap "Loggin in for you 😘"
 browser.text_field(name: "username").set "#{username}"
 browser.text_field(name: "password").set "#{password}"
 
-browser.button(class: "_ah57t _84y62 _i46jh _rmr7s").click
+browser.button(class: "_qv64e       _gexxb _4tgw8     _njrw0   ").click
 sleep(2)
+
+def spanClick(class)
+  browser.spans(class: class).each { |val|
+    val.click
+    @like_counter += 1
+    sleep(1)
+  }
+  ap "❤️\s count: #{@like_counter}"
+end
 
 while true
   5.times do |i|
@@ -30,25 +39,15 @@ while true
   end
 
   if browser.span(class: "coreSpriteLikeHeartOpen").exists?
-    browser.spans(class: "coreSpriteLikeHeartOpen").each { |val|
-      val.click
-      like_counter += 1
-      sleep(1)
-    }
-    ap "❤️\s count: #{like_counter}"
+    spanClick("coreSpriteLikeHeartOpen")
   elsif browser.span(class: "coreSpriteHeartOpen").exists?
-    browser.spans(class: "coreSpriteHeartOpen").each { |val|
-      val.click
-      like_counter += 1
-      sleep(1)
-    }
-    ap "❤️\s count: #{like_counter}"
+    spanClick("coreSpriteHeartOpen")
   else
     ap "No media to like yo, sorry homie"
     # exit
   end
   num_of_rounds += 1
-  puts "======= #{like_counter / num_of_rounds} ❤️ \s per round (on average) =========="
+  puts "======= #{@like_counter / num_of_rounds} ❤️ \s per round (on average) =========="
   sleep(30)
 end
 

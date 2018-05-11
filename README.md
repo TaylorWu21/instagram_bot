@@ -3,6 +3,5 @@
   <li>brew install chromedriver</li>
   <li>gem install seliunium</li>
   <li>gem install watir</li>
-  <li>create a credential.rb file</li>
   <li>enter in instagram account info in the credential.rb file</li>
 </ol>
